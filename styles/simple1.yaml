@@ -1,0 +1,34 @@
+author: Patricio Gonzalez Vivo (@patriciogv) - 2016 
+
+import:
+    - borders.yaml
+    - https://tangrams.github.io/blocks/source-elevation.yaml
+    - https://tangrams.github.io/blocks/elevation/normal.yaml
+
+sources:
+    osm:
+        type: TopoJSON
+        url:  https://vector.mapzen.com/osm/all/{z}/{x}/{y}.topojson?api_key=vector-tiles-Nhm6Mkg
+        rasters: [normals-elevation]
+        
+layers:
+    earth:
+        draw:
+            earth:
+                color: gray
+            earth_lines:
+                order: global.order-top
+                color: [0.545, 0.990, 1.000]
+                width: 2px
+    landuse:
+        draw:
+            landuse:
+                visible: false
+                color: [0.000, 1.000, 0.480]
+styles:
+    earth:
+        base: polygons
+        mix: [elevation-normal]
+    earth_lines:
+        base: lines
+        lighting: false
